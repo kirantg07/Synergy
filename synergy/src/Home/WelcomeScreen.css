@@ -1,0 +1,19 @@
+.background-image {
+    background-image: url('https://tse2.mm.bing.net/th?id=OIP.KtPeJw_3PEU8FLlfn4vwcwHaEo&pid=Api&P=0&h=180');
+    background-size: cover; /* Adjust image size */
+    background-position: center; /* Center the image */
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height */
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place it behind the content */
+  }
+  
+  .content {
+    padding: 20px; /* Add padding to prevent content from overlapping with the background */
+  }
+  .white-text {
+    color: white;
+  }
+  

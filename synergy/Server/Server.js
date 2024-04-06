@@ -1,12 +1,12 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const axios = require('axios');
+import express from 'express';
+import { json } from 'body-parser';
+import cors from 'cors';
+import { post } from 'axios';
 
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(json());
 
 app.post('/input', async (req, res) => {
   const { inputValue } = req.body;
@@ -14,14 +14,14 @@ app.post('/input', async (req, res) => {
   
   try {
     // Send the received input to the Microsoft Copilot API (hypothetical example)
-    const response = await axios.post('https://api.microsoft.com/copilot/v1/completions', {
+    const response = await post('https://api.microsoft.com/copilot/v1/completions', {
       prompt: inputValue,
       max_tokens: 100,
       // Add any other necessary parameters
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer YOUR_MICROSOFT_API_KEY', // Replace with your Microsoft API key
+        'Authorization': 'Bearer ', // Replace with your Microsoft API key
       },
     });
 
@@ -29,8 +29,8 @@ app.post('/input', async (req, res) => {
     const generatedText = response.data.generatedText.trim();
     console.log('Generated text:', generatedText);
 
-    // Send the generated text back to the front end
-    res.status(200).json({ message: 'Input received and processed successfully', generatedText });
+    // Redirect to the FeatureList page along with the generated text as a query parameter
+    res.redirect(`/Home/FeatureList?generatedText=${encodeURIComponent(generatedText)}`);
   } catch (error) {
     console.error('Error processing input:', error.message);
     res.status(500).json({ error: 'Failed to process input' });

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import './WelcomeScreen.css';
 const WelcomeScreen = () => {
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate(); // Access navigate function from useNavigate hook
@@ -38,9 +38,9 @@ const WelcomeScreen = () => {
 
   return (
     <div className="welcome-screen">
-      <img src="https://tse2.mm.bing.net/th?id=OIP.KtPeJw_3PEU8FLlfn4vwcwHaEo&pid=Api&P=0&h=180" alt="App Development" />
+<div className="background-image"></div>
       <div>
-        <h1>Welcome to the Home Page</h1>
+        <h1 className="white-text">Welcome to DreamApp AI Tool</h1>
         <form onSubmit={handleSubmit} className="input-form">
           <textarea
             placeholder="Enter text..."
