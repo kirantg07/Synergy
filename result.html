@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>App Features</title>
+    <style>
+        body {
+            background-image: url("https://th.bing.com/th/id/R.f8e9aeaeded1af037a889d857eb4a9de?rik=NQDSq58T4j2g6w&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fm8wqdGZ.jpg&ehk=YhxrZ8km4iP91moZQIzwhpPcXtnqs9GKJ1sbZtUMlws%3d&risl=&pid=ImgRaw&r=0");
+            background-color: #f0f0f0;  
+            font-family: Arial, sans-serif;
+            text-align: center;  
+            color: #333;  
+        }
+        h1, h2 {
+            color: #007bff;  
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        a {
+            color: #4CAF50;  
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Features for Your Dream App</h1>
+    <p><strong>Input Text:</strong> {{ user_input }}</p>
+    {% if app_category != 'general' %}
+    <p><strong>App Category:</strong> {{ app_category.capitalize() }}</p>
+    <h2>Recommended Features:</h2>
+    <ul>
+        {% for feature in features %}
+        <li>{{ feature }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Sorry, we could not determine the specific app category from your input.</p>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
